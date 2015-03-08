@@ -1,0 +1,100 @@
+{% extends 'base/base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-social.css"/>
+    <link rel="stylesheet" href="/static/font-awesome-4.2.0/css/font-awesome.min.css"/>
+{% endblock %}
+{% block body %}
+    <div class="container text-center">
+        <div class="row">
+        <div class="col-md-12 column">
+			<div class="carousel slide" id="carousel-238823">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-238823">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-238823">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-238823">
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img alt=""  src="../static/img/cachoeira.png" />
+						<div class="carousel-caption">
+							<h4>
+								Descubra um lugar
+							</h4>
+
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="../static/img/grande.png">/>
+						<div class="carousel-caption">
+							<h4>
+								Planeje sua viagem
+							</h4>
+
+						</div>
+					</div>
+
+					<div class="item">
+						<img alt="" src="../static/img/pordosol.png" />
+						<div class="carousel-caption">
+							<h4>
+								Viva uma aventura
+							</h4>
+						</div>
+					</div>
+				</div> <a class="left carousel-control" href="#carousel-238823" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-238823" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+		</div>
+            <div class="col-md-12">
+                <h1>Turismo</h1>
+                <p>{% trans %}Saiba tudo sobre os destinos, conheça as dicas de quem já foi, torne sua viagem inesquecível{% endtrans %}</p>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <div class="col-md-4"  >
+                <div class="thumbnail" >
+                <img alt="" src="../static/img/DSC06416.jpg " />
+                    <h2>{% trans %}Familia
+                        <a href=""></a>{% endtrans %}
+                    </h2>
+                    <br/>
+
+                    <p>
+                        <a href="/courses" class="btn btn-primary"></i>{% trans %} Familias{% endtrans %} &raquo;</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                <img alt="300x200" src="http://lorempixel.com/600/200/people" />
+                    <h2>{% trans %}Aventura e Natureza{% endtrans %}</h2>
+                    <br/>
+
+                    <p>
+                        <a href="https://github.com/renzon/tekton-fullstack" class="btn btn-social btn-github"><i
+                                class="fa fa-github"></i>{% trans %}Check Git Hub Out{% endtrans %} &raquo;</a>
+                    </p>
+                </div>
+            </div>
+         <div class="col-md-4">
+                <div class="thumbnail">
+                    <h2>{% trans %}Romance.{% endtrans %}</h2>
+                    <br/>
+
+                    <p>
+                        <a href="https://github.com/renzon/tekton-fullstack" class="btn btn-social btn-github"><i
+                                class="fa fa-github"></i>{% trans %}Check Git Hub Out{% endtrans %} &raquo;</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+                <iframe width="560" height="315" src="//www.youtube.com/embed/videoseries?list=PLA05yVJtRWYRGIeBxag8uT-3ftcMVT5oF" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+{% endblock %}

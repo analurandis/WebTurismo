@@ -1,0 +1,1 @@
+@"C:\Users\Na'Lu\Desktop\TurismoVale\backend\venv\Scripts\python.exe" "C:\Users\Na'Lu\Desktop\TurismoVale\backend\venv\Scripts\markdown_py" %*
