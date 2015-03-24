@@ -20,7 +20,6 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 main,
 nav,
 section,
@@ -4323,7 +4322,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding: 6px 12px;
   margin-left: -1px;
   line-height: 1.42857143;
-  color: #428bca;
+  color: #226d1f;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -4469,6 +4468,7 @@ a.label:focus {
 .label-default[href]:hover,
 .label-default[href]:focus {
   background-color: #5e5e5e;
+
 }
 .label-primary {
   background-color: #428bca;

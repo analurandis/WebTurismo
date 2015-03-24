@@ -1,0 +1,74 @@
+{% extends 'hoteisepousadas/base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-social.css"/>
+    <link rel="stylesheet" href="/static/font-awesome-4.2.0/css/font-awesome.min.css"/>
+     <link rel="stylesheet" href="/static/css/default.css"/>
+{% endblock %}
+{% block body %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Hotéis e Pousadas</h1>
+                <p>{% trans %}Pesquise um Lugar para relaxar ou se divertir{% endtrans %}</p>
+             {% include 'outros/pesquisar.html' %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Destaques</h1>
+            </div>
+        </div>
+        <div class="row">
+             <div class="col-md-4">
+                 <h3>
+                    <a href="#" class="link">$ Econômico</a>
+                 </h3>
+                 {% include 'hoteisepousadas/economico.html' %}
+             </div>
+             <div class="col-md-4">
+                  <h3>
+				    <a href="#" class="link">$$ Moderado</a>
+			     </h3>
+                  {% include 'hoteisepousadas/moderado.html' %}
+             </div>
+            <div class="col-md-4">
+                <h3>
+				    <a href="#" class="link">$$$ Superior</a>
+			    </h3>
+                 {% include 'hoteisepousadas/superior.html' %}
+             </div>
+        </div>
+            <div class="row">
+             <div class="col-md-4">
+                 <h3>
+				    <a href="#" class="link">Praia </a>
+			     </h3>
+                  {% include 'hoteisepousadas/praia.html' %}
+             </div>
+             <div class="col-md-4">
+                  <h3>
+				    <a href="#" class="link">Fazenda</a>
+			     </h3>
+                  {% include 'hoteisepousadas/fazenda.html' %}
+             </div>
+            <div class="col-md-4">
+                <h3>
+				    <a href="#" class="link">Serra</a>
+			    </h3>
+                 {% include 'hoteisepousadas/serra.html' %}
+             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Escolha seu destino e conheça as melhor opções de acomodações</h1>
+            </div>
+        </div>
+    </div>
+     {% include "destinos/suldeste.html" %}
+     {% include "destinos/nordeste.html" %}
+     {% include "destinos/sul.html" %}
+     {% include "destinos/norte.html" %}
+     {% include "destinos/centrooeste.html" %}
+
+
+{% endblock %}

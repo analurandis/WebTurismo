@@ -1,7 +1,7 @@
 application: agoravaletur
-version: 2
+version: 3
 runtime: python27
-api_version: 2
+api_version: 1
 threadsafe: yes
 
 inbound_services:
@@ -33,7 +33,7 @@ handlers:
   upload: static/robots.txt
 
 - url: /favicon\.ico
-  static_files: static/img/favicon.ico
+  static_files: static/img/favicon (2).ico
   upload: static/img/favicon.ico
 
 - url: /static(.*)

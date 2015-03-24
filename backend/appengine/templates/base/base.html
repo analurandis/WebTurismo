@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Tekton Fullstrack{% endblock %}</title>
+    <title>{% block title %}Turismo{% endblock %}</title>
     <!-- Bootstrap -->
 
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,20 +48,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand">Turismo</a>
+            <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-globe"></span>Turismo</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 {% macro select_tab(tab='') %}
-                    <li {{ 'class=active' if tab=='DESTINOS' }}><a href="/destinos">{% trans %}Destinos{% endtrans %}</a>
+                    <li {{ 'class=active' if tab=='DESTINOS' }}><a href="/destinos"><span class="glyphicon glyphicon-road"></span>{% trans %} Destinos{% endtrans %}</a>
                     </li>
-                    <li {{ 'class=active' if tab=='HOTEISEPOUSADAS' }}><a href="/hoteisepousadas">{% trans %}Hoteis e Pousadas{% endtrans %}</a>
+                    <li {{ 'class=active' if tab=='HOTEISEPOUSADAS' }}><a href="/hoteisepousadas"><span class="glyphicon glyphicon-check"></span>{% trans %} Hoteis e Pousadas{% endtrans %}</a>
                     </li>
-                     <li {{ 'class=active' if tab=='FOTOS' }}><a href="/fotos">{% trans %}Fotos{% endtrans %}</a>
+                     <li {{ 'class=active' if tab=='FOTOS' }}><a href="/fotos"><span class="glyphicon glyphicon-picture"></span>{% trans %} Fotos{% endtrans %}</a>
                     </li>
-                     <li {{ 'class=active' if tab=='DICAS' }}><a href="/dicas">{% trans %}Dicas{% endtrans %}</a>
-                    </li>
-                     <li {{ 'class=active' if tab=='IDEIASDEVIAGEM' }}><a href="/ideiasdeviagem">{% trans %}Ideias de Viagem{% endtrans %}</a>
+                     <li {{ 'class=active' if tab=='DICAS' }}><a href="/dicas"><span class="glyphicon glyphicon-bullhorn"></span>{% trans %} Dicas{% endtrans %}</a>
                     </li>
 
                     {% if _logged_user and 'ADMIN' in _logged_user.groups %}
@@ -95,20 +93,35 @@
                     </div>
                 {% else %}
                     <a class="btn btn-success" href="{{ _login_path }}">{% trans %}Login{% endtrans %}</a>
-
+                     <a href="/cadastrar"> <button type="button" class="btn btn-success"> Cadastrar </button></a>
                 {% endif %}
 
             </div>
         </div>
+
     </div>
 </div>
 {% block body %}{% endblock %}
 <div class="footer">
-    <div class="container">
-        <p class="text-muted text-right">Tekton Full-Stack: <a target="_blank"
-                                                               href="https://github.com/renzon/tekton-fullstack">Git
-            Hub</a></p>
+    <center>
+    <div class="row" style="max-width: 850px">
+        <div class="col-md-4"  >
+            <div class="pull-center" style="text-align: center">
+            Aproveite o que o Brasil tem de melhor
+            </div>
+        </div>
+        <div class="col-md-4"  >
+            <div class="pull-center" style="text-align: center">
+          <img src="../../static/img/logo.png" >
+            </div>
+        </div>
+        <div class="col-md-4"  >
+            <div class="pull-center" style="text-align: center">
+            Vale a pena viver o turismo brasileiro
+            </div>
+        </div>
     </div>
+        </center>
 </div>
 </body>
 </html>

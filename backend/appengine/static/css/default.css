@@ -3,8 +3,84 @@
     padding-top: 10px;
     bottom: 0;
     width: 100%;
+
     /* Set the fixed height of the footer here */
     height: 60px;
     border-top: solid #DDDDDD 1px;
     background-color: #f5f5f5;
+}
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+}
+.nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+    color: #08650a;
+    font-size: large;
+}
+.nav-tabs > li > a:hover {
+  border-color: #88b381 #555555 #939393;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #757575;
+  border-bottom-color: transparent;
+}
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+       -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+}
+.thumbnail > img,
+.thumbnail a > img {
+  margin-right: auto;
+  margin-left: auto;
+}
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+  border-color: #428bca;
+}
+.thumbnail .caption {
+  padding: 9px;
+  color: #333;
+}
+
+.link{
+    color: #006600;
+     margin-left: 5px;
+
+}
+a.link:hover {
+  color: #009100;
+}
+
+.sublink{
+    color: #333
+
+}
+a.sublink:hover{
+    color: #555555;
+}
+.pagination > li > a,
+.pagination > li > span {
+    color: #006600;
 }

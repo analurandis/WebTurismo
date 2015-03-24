@@ -1,0 +1,28 @@
+{% extends 'dicas/base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-social.css"/>
+    <link rel="stylesheet" href="/static/font-awesome-4.2.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/css/default.css"/>
+{% endblock %}
+{% block body %}
+    <div class="container  text-center">
+        <div class="row">
+            <div class="col-md-4 ">
+                {% include 'dicas/menudicas.html' %}
+            </div>
+            <div class="col-md-1 ">
+
+            </div>
+            <aside class="col-md-8">
+                <h1>Dicas em destaque</h1>
+                <div>
+                    {% include 'dicas/dica.html' %}
+                </div>
+
+            </aside>
+        </div>
+
+
+
+    </div>
+{% endblock %}
