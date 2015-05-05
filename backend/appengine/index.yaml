@@ -18,6 +18,17 @@ indexes:
 
 - kind: Node
   properties:
+  - name: cidade
+  - name: class
+  - name: titulo
+
+- kind: Node
+  properties:
+  - name: class
+  - name: cidade
+
+- kind: Node
+  properties:
   - name: class
   - name: creation
 
@@ -30,4 +41,25 @@ indexes:
 - kind: Node
   properties:
   - name: class
+  - name: datas
+
+- kind: Node
+  properties:
+  - name: class
   - name: email
+
+- kind: Node
+  properties:
+  - name: class
+  - name: estado
+
+- kind: Node
+  properties:
+  - name: class
+  - name: estado
+  - name: cidade
+
+- kind: Node
+  properties:
+  - name: class
+  - name: titulo

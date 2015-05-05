@@ -1,0 +1,61 @@
+{% extends 'dicas/base.html' %}
+
+{% block body %}
+    {% set erros = erros or None %}
+    {% set dica = dica or None %}
+    {% set cidade = cidade or None %}
+    {% set dica_retorno = dica_retorno or None %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <br/>
+
+                <div class="well">
+                <a href="/dicas/buscarDica"> <button type="submit" class="btn btn-success" name="editar" >{% trans %}Voltar{% endtrans %}</button></a>
+                    <h1 class="text-center">{% trans %}Formulário de Dicas{% endtrans %}</h1>
+                <!-- Criação do formulario do estado -->
+                    <!-- Criação do formulario da Dica -->
+                    {% if dica_retorno!= None  or erros!=None %}
+                        <form action="{{ editar_path }}" method="post" role="form">
+                            {{ csrf_input() }}
+                            {{ form_input( 'Titulo','titulo',dica_retorno.titulo,erros.titulo) }}
+                            {{ form_input( 'Data da Viagem','datas',dica_retorno.datas,erros.datas) }}
+                            {{ form_input( 'Dica','dica',dica_retorno.dica,erros.dica) }}
+                         <div style="display: none">
+                                {{ form_input( 'Cidade','city',dica_retorno.city,erros.city) }}
+                        {% if erros!=None %}
+                                {{ form_input( 'Cidade','cidade',cidade_retorno,'') }}
+                            {% endif %}
+                                 {% if erros==None %}
+                                {{ form_input( 'Cidade','cidade',dica_retorno.cidade,erros.cidade) }}
+                                     {% endif %}
+                                <input type="text" name="dic_selecionada" id="" value="{{ dic_selecionada }}"/>
+</div>
+                            <button type="submit" class="btn btn-success">{% trans %}Editar{% endtrans %}</button>
+
+
+
+                        </form>
+                         <div style="display: none">
+                        <form action="{{ excluir_path }}" method="post" role="form">
+                            {{ csrf_input() }}
+                            {{ form_input( 'Titulo','titulo',dica_retorno.titulo,erros.titulo) }}
+                            {{ form_input( 'Data da Viagem','datas',dica_retorno.datas,erros.datas) }}
+                            {{ form_input( 'Dica','dica',dica_retorno.dica,erros.dica) }}
+                                {{ form_input( 'Cidade','city',dica_retorno.city,erros.city) }}
+                                {{ form_input( 'Cidade','cidade',dica_retorno.cidade,erros.cidade) }}
+                                <input type="text" name="dic_selecionada" id="" value="{{ dic_selecionada }}"/>
+                            </div>
+                            <button type="submit" class="btn btn-success">{% trans %}Excluir{% endtrans %}</button>
+
+                        </form>
+
+
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

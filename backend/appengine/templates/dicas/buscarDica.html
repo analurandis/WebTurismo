@@ -1,0 +1,96 @@
+{% extends 'dicas/base.html' %}
+
+{% block body %}
+    {% set erros = erros or None %}
+    {% set dica = dica or None %}
+    {% set cidade = cidade or None %}
+    {% set estado = estado or None %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <br/>
+                <div class="well" align="center">
+                    <h1 class="text-center">{% trans %}Busca de Dicas{% endtrans %}</h1>
+
+                        <form action="{{ pesquisar_path }}" method="post" role="form">
+                           {% if estado!= None %}
+                            <label>Estado:</label>
+                            <select name="estado_selecionado">
+                                {% for est in estado %}
+                                     <option value="{{ est.key.id() }}" {{ 'selected="selected"' | safe if est == estado_selecionado }}>{{ est.estado }}</option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="btn btn-success">{% trans %}Pesquisar{% endtrans %}</button>
+                        {% endif %}
+
+                            {% if cidade!= None %}
+                                <label>Cidade: </label>
+                                <select name="cidade">
+                                    {% for cid in cidade %}
+                                         <option value="{{ cid.key.id() }}" {{ 'selected="selected"' | safe if cid == cidade }}>{{ cid.cidade }}</option>
+                                    {% endfor %}
+                                </select>
+                                <a href="/dicas/buscarDica"> <button type="button" class="btn btn-success"> Trocar Estado </button></a>
+                            {% endif %}
+
+
+                    </form>
+
+                    <form action="{{ buscar_path }}" method="post" role="form">
+                     {% if cidade!= None %}
+                    <div style="display: none">
+                            <select name="cidade_selecionada" >
+                                {% for cid in cidade %}
+                                     <option value="{{ cid.key.id() }}" {{ 'selected="selected"' | safe if cid == cidade }}>{{ cid.cidade }}</option>
+                                {% endfor %}
+                            </select>
+                    </div>
+                    {% endif %}
+
+                    </br>
+                        {% if estado!= None %}
+                    <div style="display: none">
+                            <select name="estado_selecionado">
+                                {% for est in estado %}
+                                     <option value="{{ est.key.id() }}" {{ 'selected="selected"' | safe if est == estado_selecionado }}>{{ est.estado }}</option>
+                                {% endfor %}
+                            </select>
+
+                    </div>
+                    {% endif %}
+                    </br>
+                    {% if cidade!= None %}
+                        <button type="submit" class="btn btn-success" style="width: 75%">{% trans %}Buscar{% endtrans %}</button>
+                    {% endif %}
+                    </form>
+                    <form action="{{ lista_path }}" method="post" role="form">
+{% if dica != None %}
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Data</th>
+                        <th>Cidade</th>
+                    </tr>
+                    </thead>
+                    {% for dic in dica %}
+                    <tr>
+
+                        <td> {{ dic.titulo }}</td>
+                        <td> {{ dic.datas }}</td>
+                        <td> {{ dic.city }}</td>
+                        <td>  <button type="submit" class="btn btn-success" value="{{ dic.key.id() }}" name="dic_selecionada">{% trans %}ver{% endtrans %}</button></td>
+
+                    </tr>
+
+                    {% endfor %}
+                </table>
+{% endif %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

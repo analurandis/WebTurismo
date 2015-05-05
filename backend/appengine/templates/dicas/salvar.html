@@ -1,0 +1,78 @@
+{% extends 'dicas/base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-social.css"/>
+    <link rel="stylesheet" href="/static/font-awesome-4.2.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/css/default.css"/>
+{% endblock %}
+    {% set erros = erros or None %}
+    {% set dica = dica or None %}
+    {% set cidade = cidade or None %}
+    {% set estado = estado or None %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="well" align="center">
+                    <h1 class="text-center">{% trans %} Busca de Dicas{% endtrans %}</h1>
+                <!-- Criação do formulario do estado -->
+
+                        <form action="{{ pesquisar_path }}" method="post" role="form">
+                        {% if estado!= None %}
+                            <label>Estado:</label>
+                            <select name="estado_selecionado">
+                                {% for est in estado %}
+                                     <option value="{{ est.key.id() }}" {{ 'selected="selected"' | safe if est == estado_selecionado }}>{{ est.estado }}</option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="btn btn-success">{% trans %}Pesquisar{% endtrans %}</button>
+                        {% endif %}
+                            {% if cidade!= None %}
+                                <select name="cidade">
+                                    {% for cid in cidade %}
+                                         <option value="{{ cid.key.id() }}" {{ 'selected="selected"' | safe if cid == cidade }}>{{ cid.cidade }}</option>
+                                    {% endfor %}
+                                </select>
+                                 <a href="/dicas/salvar"> <button type="button" class="btn btn-success"> Trocar Estado </button></a>
+                            {% endif %}
+                                        <button type="submit" class="btn btn-success">{% trans %}Pesquisar{% endtrans %}</button>
+                    </form>
+
+                    <form action="{{ buscar_path }}" method="post" role="form">
+                    <div style="display: none">
+                            <select name="cidade_selecionada" >
+                                {% for cid in cidade %}
+                                     <option value="{{ cid.key.id() }}" {{ 'selected="selected"' | safe if cid == cidade }}>{{ cid.cidade }}</option>
+                                {% endfor %}
+                            </select>
+                    </div>
+                    </br>
+
+                        <button type="submit" class="btn btn-success" style="width: 75%">{% trans %}Buscar{% endtrans %}</button>
+                    </form>
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Cidade</th>
+                    </tr>
+                    </thead>
+                    {% for dica in dicas_lista %}
+
+                    <tr>
+
+                        <td> {{ dica.titulo }}</td>
+                        <td> {{ dica.datas }}</td>
+                        <td> {{ dica.cidade }}</td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

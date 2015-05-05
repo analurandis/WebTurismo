@@ -1,0 +1,45 @@
+{% extends 'destinos/base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-social.css"/>
+    <link rel="stylesheet" href="/static/font-awesome-4.2.0/css/font-awesome.min.css"/>
+     <link rel="stylesheet" href="/static/css/default.css"/>
+{% endblock %}
+{% block body %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Destinos de Aventura e Natureza</h1>
+                <p>{% trans %}Viva uma aventura em meio a natureza, seja acompanhado ou com os amigos{% endtrans %}</p>
+            </div>
+        </div>
+
+     <div class="row">
+            <div class="col-md-4"  >
+                <div class="thumbnail" >
+                <a href="#"><img alt="" src="/static/img/camposjordao.jpg" width="600" height="200"/></a>
+                    <h3>{% trans %}Campos do Jordão - SP
+                        <a href=""></a>{% endtrans %}
+                    </h3>
+                    <br/>
+                <p>Cantada como a Suiça Brasileira pelo seu clima inigualável, e reverenciada como o Altar da Solidariedade Humana pela cura de milhares de brasileiros que, recuperados de doenças pulmonares, retornaram sadios aos seus lares, em todos os quadrantes do País</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                <a href="#"><img alt="Aventura e Lazer" src="/static/img/gramado.jpg"/></a>
+                    <h2>{% trans %}Gramado - RS{% endtrans %}</h2>
+                    <br/>
+                <p>Com arquitetura peculiar, Gramado tem ares europeus que misturam um pouco da colonização alemã, um pouco da italiana e até mesmo da suíça. Não apenas nas construções, mas as belas praças e parques, a gastronomia típica e o comércio inspiram-se no visual do velho continente para criar um cenário perfeito!</p>
+                </div>
+            </div>
+         <div class="col-md-4">
+                <div class="thumbnail">
+                 <a href="#"><img alt="Romance" src="/static/img/monteverde.jpg" width="600" height="200" /></a>
+                    <h2>{% trans %}Monte Verde - MG{% endtrans %}</h2>
+                    <br/>
+                <p>Situada em um vale no alto da Serra da Mantiqueira, Monte Verde se tornou famosa por suas próprias qualidades. Próxima dos grandes centros de um país tropical como o Brasil, Monte Verde apresenta características tipicamente européias; reúne os mesmos atrativos da agitada Campos do Jordão, mas oferece a tranqüilidade de uma pequena cidade do interior. Enfim, é uma ótima alternativa para quem procura o clima frio das montanhas e a paz do convívio íntimo com a natureza.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'destinos/base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-social.css"/>
+    <link rel="stylesheet" href="/static/font-awesome-4.2.0/css/font-awesome.min.css"/>
+     <link rel="stylesheet" href="/static/css/default.css"/>
+{% endblock %}
+{% block body %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Destinos em Família</h1>
+                <p>{% trans %}Viva os momentos com a familia nos melhores ddestinos brasileiros{% endtrans %}</p>
+            </div>
+        </div>
+
+     <div class="row">
+            <div class="col-md-4"  >
+                <div class="thumbnail" >
+                <a href="#"><img alt="" src="/static/img/olimpi.jpg" width="600" height="200"/></a>
+                    <h3>{% trans %}Olimpia - SP
+                        <a href=""></a>{% endtrans %}
+                    </h3>
+                    <br/>
+                <p>O principal atrativo, o Thermas dos Laranjais, oferece diversão por todos os lados. São mais de vinte piscinas térmicas - reunindo desde a já conhecida piscina de ondas até a criativa engenhoca que desafia o banhista a se equilibrar em uma prancha de surf depois de uma descida radical. Todas as atrações têm água com temperatura entre 26 e 33 graus. O espaço abriga ainda área de descanso com areia, palmeiras, redes, toboáguas infantis e restaurantes.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                <a href="#"><img alt="Aventura e Lazer" src="/static/img/caldasnovas.jpg"/></a>
+                    <h2>{% trans %}Caldas Novas - RS{% endtrans %}</h2>
+                    <br/>
+                <p>Água quente e relaxante, que brota da terra na temperatura de 37,5°C com propriedades terapêuticas e medicinais. Esta é a grande estrela de Caldas Novas e da cidade vizinha Rio Quente. Juntos, os dois municípios formam a maior estância hidrotermal do mundo, com mais de seis milhões de litros por hora. O local reúne diversos hotéis, parques aquáticos e o Parque Estadual da Serra de Caldas Novas, criado para proteger as nascentes das águas hidrotermais.</p>
+                </div>
+            </div>
+         <div class="col-md-4">
+                <div class="thumbnail">
+                 <a href="#"><img alt="Romance" src="/static/img/ubatuba.jpg" width="600" height="200" /></a>
+                    <h2>{% trans %}Ubatuba -SP{% endtrans %}</h2>
+                    <br/>
+                <p>Ubatuba, no litoral Norte de São Paulo, tem muitas faces. No mínimo 102, que é o número de praias que a cidade oferece. Espalhadas por cem quilômetros, as atrações surgem em forma de enseadas e baías de águas verdes e azuis emolduradas quase sempre pela densa vegetação da Serra do Mar. São tantos cantinhos peculiares que é impossível não encontrar um que seja do seu estilo. .</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
