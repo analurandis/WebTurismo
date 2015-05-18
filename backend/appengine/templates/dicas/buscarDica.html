@@ -24,28 +24,21 @@
                             <button type="submit" class="btn btn-success">{% trans %}Pesquisar{% endtrans %}</button>
                         {% endif %}
 
-                            {% if cidade!= None %}
-                                <label>Cidade: </label>
-                                <select name="cidade">
-                                    {% for cid in cidade %}
-                                         <option value="{{ cid.key.id() }}" {{ 'selected="selected"' | safe if cid == cidade }}>{{ cid.cidade }}</option>
-                                    {% endfor %}
-                                </select>
-                                <a href="/dicas/buscarDica"> <button type="button" class="btn btn-success"> Trocar Estado </button></a>
-                            {% endif %}
+
+
 
 
                     </form>
 
                     <form action="{{ buscar_path }}" method="post" role="form">
                      {% if cidade!= None %}
-                    <div style="display: none">
+
                             <select name="cidade_selecionada" >
                                 {% for cid in cidade %}
                                      <option value="{{ cid.key.id() }}" {{ 'selected="selected"' | safe if cid == cidade }}>{{ cid.cidade }}</option>
                                 {% endfor %}
                             </select>
-                    </div>
+                    <a href="/dicas/buscarDica"> <button type="button" class="btn btn-success"> Trocar Estado </button></a>
                     {% endif %}
 
                     </br>

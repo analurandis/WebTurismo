@@ -1,0 +1,79 @@
+{% extends 'dicas/base.html' %}
+{% block js %}
+  <script type="application/javascript" src="/static/js/dicajs.js"></script>
+{% endblock %}
+{% block body %}
+    {% set erros = erros or None %}
+    {% set dica = dica or None %}
+    {% set cidade = cidade or None %}
+    {% set estado = estado or None %}
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <br/>
+
+                <div class="well">
+                    <h1 class="text-center">{% trans %}Formulário de Dicas{% endtrans %}</h1>
+
+                <!-- Criação do formulario do estado -->
+                        <form action="{{ pesquisar_path }}" method="post" role="form">
+                        <center>
+                        {% if estado!= None %}
+                            <label>Estado:</label>
+                            <select name="estado_selecionado">
+                                {% for est in estado %}
+                                     <option value="{{ est.key.id() }}" {{ 'selected="selected"' | safe if est == estado_selecionado }}>{{ est.estado }}</option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="btn btn-success">{% trans %}Pesquisar{% endtrans %}</button>
+                        {% endif %}
+
+
+</center>
+
+
+                        </form>
+
+
+                    <!-- Criação do formulario da Dica -->
+                    {% if cidade!= None or erros != None%}
+                        <form action="{{ salvar_path }}" method="post" role="form">
+                            {{ csrf_input() }}
+
+                        <div style="display: none">
+                        <input name="estado_selecionado" type="text" value="{{ estado_selecionado.key.id() }}" >
+                            {{ form_input( '','city','','') }}
+                        </div>
+                         <label>Cidade: </label>
+                                <select name="cidade" >
+                                    {% for cid in cidade %}
+                                         <option value="{{ cid.key.id() }}" {{ 'selected="selected"' | safe if cid == cidade }}>{{ cid.cidade }}</option>
+
+                                    {% endfor %}
+                                </select>
+
+                        <a href="/dicas/form"> <button type="button" class="btn btn-success"> Trocar Estado </button></a>
+                            {{ form_input( 'Titulo','titulo',dica.titulo,erros.titulo) }}
+                            {{ form_input( 'Data da Viagem','datas',dica.datas,erros.datas) }}
+                            {{ form_input( 'Dica','dica',dica.dica,erros.dica) }}
+
+
+
+                            <button type="submit" class="btn btn-success">{% trans %}Salvar{% endtrans %}</button>
+                        </form>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1 col-md-offset-3">
+             <a href="/dicas/estado"> <button type="button" class="btn btn-success"> Cadastrar Estado </button></a>
+        </div>
+        <div class="col-md-1 col-md-offset-3">
+             <a href="/dicas/cidade"> <button type="button" class="btn btn-success"> Cadastrar Cidade </button></a>
+        </div>
+    </div>
+{% endblock %}
+

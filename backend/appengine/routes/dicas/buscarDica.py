@@ -46,13 +46,13 @@ def pesquisar(_resp, estado_selecionado = None):
 @login_not_required
 @no_csrf
 def buscar(_resp, cidade_selecionada = None, estado_selecionado=None):
+
     ctx={'lista_path': router.to_path(lista)}
     if cidade_selecionada is None:
         ctx['cidade'] = None
-    if estado_selecionado is not None:
-        ctx['dica']=Dicas.query_ordenada_por_nome().fetch()
     else:
         ctx['dica']=Dicas.query_buscar_dica(cidade_selecionada).fetch()
+
         if ctx['dica'] != []:
             return TemplateResponse(ctx,template_path='dicas/buscarDica.html')
     return RedirectResponse(router.to_path(index))
@@ -100,8 +100,6 @@ def excluir(_resp, dic_selecionada, **propriedades):
 @login_not_required
 @no_csrf
 def editar(_resp, dic_selecionada, **propriedades):
-        _resp.write(propriedades)
-        _resp.write(dic_selecionada)
         contexto = propriedades
         cidade_retorno =  propriedades['cidade']
         propriedades['cidade']=Cidade.get_by_id(int(propriedades['cidade']))
@@ -115,8 +113,6 @@ def editar(_resp, dic_selecionada, **propriedades):
                         'dica_retorno':dicas_form,
                         'dic_selecionada':dic_selecionada,
                         'cidade_retorno':cidade_retorno}
-            _resp.write('contexto               kmkkmkllmlm')
-            _resp.write(contexto)
 
             return TemplateResponse(contexto, 'dicas/editar.html')
         else:

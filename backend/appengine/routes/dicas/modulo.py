@@ -11,9 +11,9 @@ from gaegraph.model import Node
 class Dicas (Node):
     cidade = ndb.KeyProperty( required=True)
     titulo = ndb.StringProperty(required=True)
-    datas = ndb.DateProperty(auto_now=True)
-    dica = ndb.StringProperty(required=True)
-    city = ndb.StringProperty()
+    datas = ndb.DateProperty(required=True)
+    descDica = ndb.StringProperty(required=True)
+
 
     @classmethod
     def query_ordenada_por_nome(cls):
@@ -46,6 +46,7 @@ class Dicas (Node):
             cidade_selecionada=ndb.Key(Cidade, int(cidade_selecionada))
         return cls.query(cls.cidade==cidade_selecionada).order(cls.titulo)
 
+
     @classmethod
     def query_buscar_dica_Estado(cls, estado_selecionado):
         if isinstance(estado_selecionado, basestring):
@@ -55,7 +56,6 @@ class Dicas (Node):
 
 class DicasForm(ModelForm):
     _model_class = Dicas
-    _include = [Dicas.titulo, Dicas.datas, Dicas.dica,Dicas.cidade,Dicas.city]
 
 
 
@@ -63,7 +63,7 @@ class DicasForm(ModelForm):
 
 class DicasFormTable(ModelForm):
     _model_class = Dicas
-    _include = [ Dicas.titulo, Dicas.datas, Dicas.dica]
+    _include = [ Dicas.titulo, Dicas.datas, Dicas.descDica]
 
 
 
@@ -78,7 +78,7 @@ class Cidade (Node):
     @classmethod
     def query_buscar_cid_por_ID(cls,cidade):
             if isinstance(cidade, basestring):
-                cidade=ndb.Key(Dicas, int(cidade))
+                cidade=ndb.Key(Cidade, int(cidade))
             return cls.query(cidade==cls.key)
 
 
